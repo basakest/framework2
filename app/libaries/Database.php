@@ -23,11 +23,25 @@ class Database
         }
     }
 
+    /**
+     * 准备sql语句，创建$stmt
+     *
+     * @param [type] $sql
+     * @return void
+     */
     public function prepare($sql)
     {
         $this->stmt = $this->dbh->prepare($sql);
     }
 
+    /**
+     * 绑定对应的值
+     *
+     * @param [type] $param
+     * @param [type] $value
+     * @param [type] $type
+     * @return void
+     */
     public function bind($param, $value, $type = null)
     {
         if(is_null($type)) {
@@ -56,6 +70,7 @@ class Database
     public function fetchAll()
     {
         $this->execute();
+        //改成PDO::FETCH_CLASS报错
         return $this->stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
