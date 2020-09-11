@@ -39,3 +39,17 @@ function flash($name = '', $message = '', $class = 'alert alert-success')
         return $flash;
     }
 }
+
+/**
+ * 判断用户是否登录
+ *
+ * @return boolean
+ */
+function isLoggedIn()
+{
+    if (isset($_SESSION['id'])) {
+        return true;
+    } else {
+        return false;
+    }
+}

@@ -7,6 +7,10 @@ class Pages extends Controller
     }
     public function index()
     {
+        if (isLoggedIn()) {
+            redirect('/posts/index');
+            exit;
+        }
         $this->view('pages/index', ['title' => 'test myself', 'description' => 'the description']);
     }
 
@@ -14,5 +18,10 @@ class Pages extends Controller
     public function test($id)
     {
         echo 'test ' . $id;
+    }
+
+    public function about()
+    {
+        $this->view('pages/about', ['title' => 'about', 'description' => 'the is the about page']);
     }
 }

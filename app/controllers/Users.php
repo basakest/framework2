@@ -159,20 +159,8 @@ class Users extends Controller
         flash('logout', 'Logout success!');
         $flash = flash('logout');
         $this->view('pages/index', ['title' => 'homepage', 'description' => 'description', 'flash' => $flash]);
-        redirect('/pages/logout_flash');
+        //redirect('/pages/logout_flash');
     }
 
-    /**
-     * 判断用户是否登录
-     *
-     * @return boolean
-     */
-    public function isLoggedIn()
-    {
-        if (isset($_SESSION['id'])) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    
 }

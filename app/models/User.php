@@ -42,4 +42,12 @@ class User
             return null;
         }
     }
+
+    public function getById($id)
+    {
+        $this->db->prepare("select * from users where id = :id");
+        $this->db->bind(':id', $id);
+        $result = $this->db->fetchOne();
+        return $result;
+    }
 }
